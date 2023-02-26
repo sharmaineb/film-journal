@@ -26,7 +26,6 @@ class Film(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     watched_date = db.Column(db.Date)
-    director = db.Column(db.String(100), nullable=False)
 
     # the lists
     list_id = db.Column(db.Integer, db.ForeignKey('list.id'), nullable=False)
@@ -44,11 +43,6 @@ class Film(db.Model):
     users_who_favorited = db.relationship(
         'User', secondary='user_film', back_populates='favorite_films'
     )
-
-    # # who added film to watchlist?
-    # users_who_want_to_watch = db.relationship(
-    #     'User', secondary='user_film', back_populates='watchlist_films'
-    # )
 
     def __str__(self):
         return f'<Film: {self.title}>'
@@ -102,11 +96,6 @@ favorite_films_table = db.Table('user_film',
     db.Column('film_id', db.Integer, db.ForeignKey('film.id')),
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
 )
-
-# watchlist_films_table = db.Table('user_film',
-#     db.Column('film_id', db.Integer, db.ForeignKey('film.id')),
-#     db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
-# )
 
 
 
