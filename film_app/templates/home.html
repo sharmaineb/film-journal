@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h2>Films Logged:</h2>
-
+<div class="text-center mt-4 mb-2 font-helvetica">
+    <h1 class="mb-4" style="color: #123854;">Film Journal</h1>
+</div>
+{% include 'partials/navbar.html' %}
+<div class="d-flex justify-content-center my-4 py-3">
+    <img src="">
+</div>
 <ul>
 {% for film in all_films %}
     <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.list.name }}</li>
 {% endfor %}
 </ul>
 
+<h2>Films Logged:</h2>
 <h2>Users:</h2>
 
 <ul>
