@@ -17,11 +17,11 @@
 {% endif %}
 
 <p>
-    <strong>Director</strong>: {{ film.director.name }}
+    <strong>List</strong>: {{ film.list.name }}
 </p>
 
 <p>
-    <strong>Director Bio</strong>: {{ film.director.biography }}
+    <strong>List Description</strong>: {{ film.list.description }}
 </p>
 
 {% if film.release_date %}
@@ -53,8 +53,8 @@
         {{ form.release_date.label }}
         {{ form.release_date(placeholder="YYYY-mm-dd") }}
         
-        {{ form.director.label }}
-        {{ form.director }}
+        {{ form.list.label }}
+        {{ form.list }}
         
         {{ form.genre.label }}
         {{ form.genre }}

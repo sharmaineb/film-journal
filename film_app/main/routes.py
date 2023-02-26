@@ -2,8 +2,8 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import date, datetime
-from film_app.models import Film, Director, Entry, User
-from film_app.main.forms import FilmForm, DirectorForm, EntryForm
+from film_app.models import Film, List, Entry, User
+from film_app.main.forms import FilmForm, ListForm, EntryForm
 
 # Import app and db from film_app package so that we can run app
 from film_app.extensions import app, db, bcrypt
@@ -29,7 +29,7 @@ def create_film():
         new_film = Film(
             title=form.title.data,
             release_date=form.release_date.data,
-            director=form.director.data,
+            list=form.list.data,
             genre=form.genre.data,
             entries=form.entries.data
         )
@@ -40,23 +40,23 @@ def create_film():
         return redirect(url_for('main.film_detail', film_id=new_film.id))
     return render_template('create_film.html', form=form)
 
-@main.route('/create_director', methods=['GET', 'POST'])
+@main.route('/create_list', methods=['GET', 'POST'])
 @login_required
-def create_director():
-    form = DirectorForm()
+def create_list():
+    form = ListForm()
     if form.validate_on_submit():
-        new_director = Director(
+        new_list = List(
             name=form.name.data,
-            biography=form.biography.data
+            description=form.description.data
         )
-        db.session.add(new_director)
+        db.session.add(new_list)
         db.session.commit()
 
-        flash('New director created successfully.')
+        flash('New list created successfully.')
         return redirect(url_for('main.homepage'))
     
     # if form was not valid, or was not submitted yet
-    return render_template('create_director.html', form=form)
+    return render_template('create_list.html', form=form)
 
 @main.route('/create_entry', methods=['GET', 'POST'])
 @login_required
@@ -84,7 +84,7 @@ def film_detail(film_id):
     if form.validate_on_submit():
         film.title = form.title.data
         film.release_date = form.release_date.data
-        film.director = form.director.data
+        film.list = form.list.data
         film.genre = form.genre.data
         film.entries = form.entries.data
 

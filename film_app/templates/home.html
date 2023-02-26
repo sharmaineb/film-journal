@@ -6,7 +6,7 @@
 
 <ul>
 {% for film in all_films %}
-    <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.director.name }}</li>
+    <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.list.name }}</li>
 {% endfor %}
 </ul>
 

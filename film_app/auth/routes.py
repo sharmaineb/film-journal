@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 
-from film_app.models import Film, Director, Entry, User
+from film_app.models import Film, List, Entry, User
 from film_app.auth.forms import SignUpForm, LoginForm
 
 # Import app and db from events_app package so that we can run app

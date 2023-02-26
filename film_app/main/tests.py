@@ -193,7 +193,7 @@
 #         # Make sure film was updated as we'd expect
 #         created_film = Film.query.filter_by(title='Frances Ha').one()
 #         self.assertIsNotNone(created_film)
-#         self.assertEqual(created_film.director.name, 'Greta Gerwig')
+#         self.assertEqual(created_film.list.name, 'Greta Gerwig')
 
 #     def test_create_film_logged_out(self):
 #         """

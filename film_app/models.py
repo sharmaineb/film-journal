@@ -26,10 +26,11 @@ class Film(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     release_date = db.Column(db.Date)
+    director = db.Column(db.String(100), nullable=False)
 
-    # the director = who directed it?
-    director_id = db.Column(db.Integer, db.ForeignKey('director.id'), nullable=False)
-    director = db.relationship('Director', back_populates='films')
+    # the lists
+    list_id = db.Column(db.Integer, db.ForeignKey('list.id'), nullable=False)
+    list = db.relationship('List', back_populates='films')
 
     # the genres 
     genre = db.Column(db.Enum(Genre), default=Genre.COMEDY)
@@ -55,18 +56,18 @@ class Film(db.Model):
     def __repr__(self):
         return f'<Film: {self.title}>'
     
-class Director(db.Model):
-    """Director model."""
+class List(db.Model):
+    """List model."""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    biography = db.Column(db.String(200))
-    films = db.relationship('Film', back_populates='director')
+    description = db.Column(db.String(500))
+    films = db.relationship('Film', back_populates='list')
 
     def __str__(self):
-        return f'<Director: {self.name}>'
+        return f'<List: {self.name}>'
 
     def __repr__(self):
-        return f'<Director: {self.name}>'
+        return f'<List: {self.name}>'
     
 class Entry(db.Model):
     """Entry model."""
