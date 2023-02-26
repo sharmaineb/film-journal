@@ -15,8 +15,8 @@
         {% endfor %}
         </ul>
         
-        {{ form.release_date.label }}
-        {{ form.release_date(placeholder="YYYY-mm-dd") }}
+        {{ form.watched_date.label }}
+        {{ form.watched_date(placeholder="YYYY-mm-dd") }}
         <ul>
         {% for error in form.title.errors %}
             <li class="error">{{ error }}</li>

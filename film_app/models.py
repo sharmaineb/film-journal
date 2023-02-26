@@ -25,7 +25,7 @@ class Film(db.Model):
     """Film Model"""
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
-    release_date = db.Column(db.Date)
+    watched_date = db.Column(db.Date)
     director = db.Column(db.String(100), nullable=False)
 
     # the lists

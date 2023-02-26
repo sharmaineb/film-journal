@@ -28,7 +28,7 @@
 #     a1 = Director(name='Greta Gerwig')
 #     b1 = Film(
 #         title='Lady Bird',
-#         release_date=date(2017, 11, 10),
+#         watched_date=date(2017, 11, 10),
 #         director=a1
 #     )
 #     db.session.add(b1)
@@ -160,7 +160,7 @@
 #         # Make POST request with data
 #         post_data = {
 #             'title': 'Little Women',
-#             'release_date': '2012-12-25',
+#             'watched_date': '2012-12-25',
 #             'director': 1,
 #             'genre': 'Comedy',
 #             'entries': []
@@ -170,7 +170,7 @@
 #         # Make sure the film was updated as we'd expect
 #         film = Film.query.get(1)
 #         self.assertEqual(film.title, 'Little Women')
-#         self.assertEqual(film.release_date, date(2019, 12, 25))
+#         self.assertEqual(film.watched_date, date(2019, 12, 25))
 #         self.assertEqual(film.genre, Genre.DRAMA)
 
 #     def test_create_film(self):
@@ -183,7 +183,7 @@
 #         # Make POST request with data
 #         post_data = {
 #             'title': 'Frances Ha',
-#             'release_date': '2013-05-17',
+#             'watched_date': '2013-05-17',
 #             'director': 1,
 #             'genre': 'ROMANCE',
 #             'genres': []

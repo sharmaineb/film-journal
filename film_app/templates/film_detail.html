@@ -24,9 +24,9 @@
     <strong>List Description</strong>: {{ film.list.description }}
 </p>
 
-{% if film.release_date %}
+{% if film.wacthed_date %}
 <p>
-    <strong>Release date</strong>: {{ film.release_date.strftime('%B %d, %Y') }}
+    <strong>Release date</strong>: {{ film.wacthed_date.strftime('%B %d, %Y') }}
 </p>
 {% endif %}
 
@@ -50,8 +50,8 @@
         {{ form.title.label }}
         {{ form.title }}
         
-        {{ form.release_date.label }}
-        {{ form.release_date(placeholder="YYYY-mm-dd") }}
+        {{ form.wacthed_date.label }}
+        {{ form.watched_date(placeholder="YYYY-mm-dd") }}
         
         {{ form.list.label }}
         {{ form.list }}

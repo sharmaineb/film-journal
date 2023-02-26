@@ -28,7 +28,7 @@ def create_film():
     if form.validate_on_submit(): 
         new_film = Film(
             title=form.title.data,
-            release_date=form.release_date.data,
+            watched_date=form.watched_date.data,
             list=form.list.data,
             genre=form.genre.data,
             entries=form.entries.data
@@ -83,7 +83,7 @@ def film_detail(film_id):
     # if form was submitted and contained no errors
     if form.validate_on_submit():
         film.title = form.title.data
-        film.release_date = form.release_date.data
+        film.watched_date = form.watched_date.data
         film.list = form.list.data
         film.genre = form.genre.data
         film.entries = form.entries.data

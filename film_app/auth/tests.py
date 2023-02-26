@@ -20,7 +20,7 @@
 #     a1 = Director(name='Greta Gerwig')
 #     b1 = Film(
 #         title='Lady Bird',
-#         release_date=date(2017, 11, 10),
+#         watched_date=date(2017, 11, 10),
 #         director=a1
 #     )
 #     db.session.add(b1)
