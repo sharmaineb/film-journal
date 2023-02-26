@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ film.title }}</h1>
+
+{% if current_user.is_authenticated %}
+    {% if film not in current_user.favorite_films %}
+    <form action="/favorite/{{ film.id }}" method="POST">
+        <input type="submit" value="Favorite This Film">
+    </form>
+    {% else %}
+    <form action="/unfavorite/{{ film.id }}" method="POST">
+        <input type="submit" value="Unfavorite This film">
+    </form>
+    {% endif %}
+{% endif %}
+
+<p>
+    <strong>Director</strong>: {{ film.director.name }}
+</p>
+
+<p>
+    <strong>Director Bio</strong>: {{ film.director.biography }}
+</p>
+
+{% if film.release_date %}
+<p>
+    <strong>Release date</strong>: {{ film.release_date.strftime('%B %d, %Y') }}
+</p>
+{% endif %}
+
+<p>
+    <strong>Genre</strong>: {{ film.genre }}
+</p>
+
+<p>
+    <strong>Entries</strong>: 
+    
+    {% for entry in film.entries %}
+    {{ entry.name }},
+    {% endfor %}
+</p>
+
+<form method="POST" action="{{ url_for('main.film_detail', film_id=film.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this film</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        
+        {{ form.release_date.label }}
+        {{ form.release_date(placeholder="YYYY-mm-dd") }}
+        
+        {{ form.director.label }}
+        {{ form.director }}
+        
+        {{ form.genre.label }}
+        {{ form.genre }}
+        
+        {{ form.entries.label }}
+        {{ form.entries }}
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

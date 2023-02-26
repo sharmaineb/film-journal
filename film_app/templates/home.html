@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Films Logged:</h2>
+
+<ul>
+{% for film in all_films %}
+    <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.director.name }}</li>
+{% endfor %}
+</ul>
+
+<h2>Users:</h2>
+
+<ul>
+    {% for user in all_users %}
+        <li><a href="/profile/{{ user.username }}">{{ user.username }}</a></li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

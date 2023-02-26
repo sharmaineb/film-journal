@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+Welcome to {{ user.username }}'s profile.
+</p>
+
+<!-- TODO: Display the user's actual favorites here -->
+
+<p>
+    {{ user.username }}'s favorite films are:
+
+    <ul>
+        {% for film in user.favorite_films %}
+        <li><a href="/film/{{ film.id }}">{{ film.title }}</a></li>
+        {% endfor %}
+    </ul>
+</p>
+
+{% endblock %}

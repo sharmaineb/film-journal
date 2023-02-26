@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.create_film') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a film</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.release_date.label }}
+        {{ form.release_date(placeholder="YYYY-mm-dd") }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.director.label }}
+        {{ form.director }}
+        <ul>
+        {% for error in form.director.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.genre.label }}
+        {{ form.genre }}
+        <ul>
+        {% for error in form.genre.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.entries.label }}
+        {{ form.entries }}
+        <ul>
+        {% for error in form.entries.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
