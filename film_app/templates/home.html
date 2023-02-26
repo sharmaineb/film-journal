@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1">Film Journal</h1>
+<h1 class="title">Film Journal</h1>
 <ul>
 {% for film in all_films %}
     <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.list.name }}</li>

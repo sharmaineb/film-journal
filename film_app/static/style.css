@@ -1,1 +1,66 @@
-/* Add styles here.
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(59, 79, 101);
+    font-family: 'Lobster';
+    font-size: 20px;
+    color:rgb(255,191,0);
+}
+
+#content {
+    width: 100%;
+    background-color: rgb(59, 79, 101);
+    padding: 20px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav a {
+    color: rgb(255, 179, 186);
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 1px 5px;
+    font-size: 1.2em;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+fieldset * {
+    margin: 5px;
+}
+
+fieldset input {
+    padding: 5px;
+}
+
+input[type=submit] {
+    padding: 10px 20px;
+    align-self: flex-end;
+}
+
+li.error {
+    color: red;
+}
+
+h1.title {
+    color:rgb(255,191,0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(59, 79, 101);
+    font-family: 'Lobster';
+    font-size: 50px;
+}
