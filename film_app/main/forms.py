@@ -9,7 +9,7 @@ class FilmForm(FlaskForm):
     """Form to create a film"""
     title = StringField('Film Title',
         validators=[DataRequired(), Length(min=3, max=80)])
-    watched_date = DateField('Date Watched:')
+    watched_date = DateField('Date Watched or Will Watch:')
     list = QuerySelectField('List',
         query_factory=lambda: List.query, allow_blank=False)
     genre = SelectField('Genre', choices=Genre.choices())
