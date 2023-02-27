@@ -2,11 +2,6 @@
 {% block content %}
 
 <h1 class="title">Film Journal</h1>
-<ul>
-{% for film in all_films %}
-    <li><a href="/film/{{ film.id }}">{{ film.title }}</a> by {{ film.list.name }}</li>
-{% endfor %}
-</ul>
 
 <h3 class="text-center">Not Sure What to Watch?</h3>
 <div class="list-group">
@@ -37,6 +32,11 @@
 
 <div>
 <h2>Films Logged:</h2>
+<ul>
+    {% for film in all_films %}
+        <li><a href="/film/{{ film.id }}">{{ film.title }}</a></li>
+    {% endfor %}
+    </ul>
 <h2>Users:</h2>
 </div>
 
