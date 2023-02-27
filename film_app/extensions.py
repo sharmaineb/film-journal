@@ -26,5 +26,3 @@ def load_user(user_id):
 
 bcrypt = Bcrypt(app)
 
-
-

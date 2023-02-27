@@ -26,20 +26,12 @@ class Film(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     watched_date = db.Column(db.Date)
-
-    # the lists
     list_id = db.Column(db.Integer, db.ForeignKey('list.id'), nullable=False)
     list = db.relationship('List', back_populates='films')
-
-    # the genres 
     genre = db.Column(db.Enum(Genre), default=Genre.COMEDY)
-
-    # the entries
     entries = db.relationship(
         'Entry', secondary='film_entry', back_populates='films'
     )
-
-    # who favorited this film?
     users_who_favorited = db.relationship(
         'User', secondary='user_film', back_populates='favorite_films'
     )

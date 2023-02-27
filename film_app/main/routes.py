@@ -1,16 +1,11 @@
-"""Import packages and modules."""
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import date, datetime
 from film_app.models import Film, List, Entry, User
 from film_app.main.forms import FilmForm, ListForm, EntryForm
-
-# Import app and db from film_app package so that we can run app
 from film_app.extensions import app, db, bcrypt
 
 main = Blueprint("main", __name__)
-
-# routes
 
 @main.route('/')
 def homepage():
@@ -24,7 +19,6 @@ def homepage():
 def create_film():
     form = FilmForm()
 
-    # if form was submitted and contained no errors
     if form.validate_on_submit(): 
         new_film = Film(
             title=form.title.data,
@@ -55,7 +49,6 @@ def create_list():
         flash('New list created successfully.')
         return redirect(url_for('main.homepage'))
     
-    # if form was not valid, or was not submitted yet
     return render_template('create_list.html', form=form)
 
 @main.route('/create_entry', methods=['GET', 'POST'])
@@ -72,7 +65,6 @@ def create_entry():
         flash('New entry created successfully.')
         return redirect(url_for('main.homepage'))
     
-    # if form was not valid, or was not submitted yet
     return render_template('create_entry.html', form=form)
 
 @main.route('/film/<film_id>', methods=['GET', 'POST'])
@@ -80,7 +72,6 @@ def film_detail(film_id):
     film = Film.query.get(film_id)
     form = FilmForm(obj=film)
     
-    # if form was submitted and contained no errors
     if form.validate_on_submit():
         film.title = form.title.data
         film.watched_date = form.watched_date.data
