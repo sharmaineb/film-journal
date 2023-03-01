@@ -37,10 +37,10 @@ class Film(db.Model):
     )
 
     def __str__(self):
-        return f'<Film: {self.title}>'
+        return f'Film: {self.title}'
 
     def __repr__(self):
-        return f'<Film: {self.title}>'
+        return f'Film: {self.title}'
     
 class List(db.Model):
     """List model."""
@@ -50,10 +50,10 @@ class List(db.Model):
     films = db.relationship('Film', back_populates='list')
 
     def __str__(self):
-        return f'<List: {self.name}>'
+        return f'List: {self.name}'
 
     def __repr__(self):
-        return f'<List: {self.name}>'
+        return f'List: {self.name}'
     
 class Entry(db.Model):
     """Entry model."""
@@ -63,10 +63,10 @@ class Entry(db.Model):
         'Film', secondary='film_entry', back_populates='entries')
 
     def __str__(self):
-        return f'<Entry: {self.name}>'
+        return f'Entry: {self.name}'
 
     def __repr__(self):
-        return f'<Entry: {self.name}>'
+        return f'Entry: {self.name}'
 
 film_entry_table = db.Table('film_entry',
     db.Column('film_id', db.Integer, db.ForeignKey('film.id')),
@@ -81,7 +81,7 @@ class User(UserMixin, db.Model):
         'Film', secondary='user_film', back_populates='users_who_favorited')
 
     def __repr__(self):
-        return f'<User: {self.username}>'
+        return f'User: {self.username}'
     
 
 favorite_films_table = db.Table('user_film',
