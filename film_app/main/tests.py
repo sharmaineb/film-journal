@@ -4,7 +4,7 @@
 
 # from datetime import date
 # from film_app.extensions import app, db, bcrypt
-# from film_app.models import Film, Director, User, Genre, Entry
+# from film_app.models import Film, List, User, Genre, Entry
 
 # """
 # Run these tests with the command:
@@ -24,17 +24,17 @@
 # def logout(client):
 #     return client.get('/logout', follow_redirects=True)
 
-# def create_films():
-#     a1 = Director(name='Greta Gerwig')
+# def create_film():
+#     a1 = List(name='Recently Watched')
 #     b1 = Film(
-#         title='Lady Bird',
+#         title='Recently Watched',
 #         watched_date=date(2017, 11, 10),
-#         director=a1
+#         list=a1
 #     )
 #     db.session.add(b1)
 
-#     a2 = Director(name='Tony Scott')
-#     b2 = Film(title='True Romance', director=a2)
+#     a2 = List(name='Will Recommend')
+#     b2 = Film(title='True Romance', list=a2)
 #     db.session.add(b2)
 #     db.session.commit()
 
@@ -64,7 +64,7 @@
 #     def test_homepage_logged_out(self):
 #         """Test that the films show up on the homepage."""
 #         # Set up
-#         create_films()
+#         create_film()
 #         create_user()
 
 #         # Make a GET request
@@ -82,13 +82,13 @@
 #         # Check that the page doesn't contain things we don't expect
 #         # (these should be shown only to logged in users)
 #         self.assertNotIn('Create Film', response_text)
-#         self.assertNotIn('Create Director', response_text)
+#         self.assertNotIn('Create List', response_text)
 #         self.assertNotIn('Create Entry', response_text)
  
 #     def test_homepage_logged_in(self):
 #         """Test that the films show up on the homepage."""
 #         # Set up
-#         create_films()
+#         create_film()
 #         create_user()
 #         login(self.app, 'me1', 'password')
 
@@ -102,7 +102,7 @@
 #         self.assertIn('True Romance', response_text)
 #         self.assertIn('me1', response_text)
 #         self.assertIn('Create Film', response_text)
-#         self.assertIn('Create Director', response_text)
+#         self.assertIn('Create List', response_text)
 #         self.assertIn('Create Entry', response_text)
 
 #         # Check that the page doesn't contain things we don't expect
@@ -112,8 +112,8 @@
 
 #     def test_film_detail_logged_out(self):
 #         """Test that the film appears on its detail page."""
-#         # TODO: Use helper functions to create films, director, user
-#         create_films()
+#         # TODO: Use helper functions to create films, list, user
+#         create_film()
 #         create_user()
 
 #         # TODO: Make a GET request to the URL /film/1, check to see that the
@@ -123,7 +123,7 @@
 
 
 #         # TODO: Check that the response contains the film's title, publish date,
-#         # and director's name
+#         # and list's name
 #         response_text = response.get_data(as_text=True)
 #         self.assertIn("<h1>Lady Bird</h1>", response_text)
 #         self.assertIn("Greta Gerwig", response_text)
@@ -134,8 +134,8 @@
 
 #     def test_film_detail_logged_in(self):
 #         """Test that the film appears on its detail page."""
-#         # TODO: Use helper functions to create films, directors, user, & to log in
-#         create_films()
+#         # TODO: Use helper functions to create films, lists, user, & to log in
+#         create_film()
 #         create_user()
 #         login(self.app, 'me1', 'password')
 #         # TODO: Make a GET request to the URL /film/1, check to see that the
@@ -143,7 +143,7 @@
 #         response = self.app.get('/film/1', follow_redirects=True)
 #         self.assertEqual(response.status_code, 200)
 #         # TODO: Check that the response contains the film's title, publish date,
-#         # and director's name
+#         # and list's name
 #         response_text = response.get_data(as_text=True)
 #         self.assertIn("<h1>Lady Bird</h1>", response_text)
 #         self.assertIn("Greta Gerwig", response_text)
@@ -153,7 +153,7 @@
 #     def test_update_film(self):
 #         """Test updating a film."""
 #         # Set up
-#         create_films()
+#         create_film()
 #         create_user()
 #         login(self.app, 'me1', 'password')
 
@@ -161,7 +161,7 @@
 #         post_data = {
 #             'title': 'Little Women',
 #             'watched_date': '2012-12-25',
-#             'director': 1,
+#             'list': 1,
 #             'genre': 'Comedy',
 #             'entries': []
 #         }
@@ -176,7 +176,7 @@
 #     def test_create_film(self):
 #         """Test creating a film."""
 #         # Set up
-#         create_films()
+#         create_film()
 #         create_user()
 #         login(self.app, 'me1', 'password')
 
@@ -184,7 +184,7 @@
 #         post_data = {
 #             'title': 'Frances Ha',
 #             'watched_date': '2013-05-17',
-#             'director': 1,
+#             'list': 1,
 #             'genre': 'ROMANCE',
 #             'genres': []
 #         }
@@ -201,7 +201,7 @@
 #         route if not logged in.
 #         """
 #         # Set up
-#         create_films()
+#         create_film()
 #         create_user()
 
 #         # Make GET request
@@ -211,33 +211,33 @@
 #         self.assertEqual(response.status_code, 302)
 #         self.assertIn('/login?next=%2Fcreate_film', response.location)
 
-#     def test_create_director(self):
-#         """Test creating an director."""
+#     def test_create_list(self):
+#         """Test creating an list."""
 #         # TODO: Create a user & login (so that the user can access the route)
 #         create_user()
 #         login(self.app, 'me1', 'password')
-#         # TODO: Make a POST request to the /create_director route
+#         # TODO: Make a POST request to the /create_list route
 #         post_data = {
 #             'name': 'Damien Chazelle',
-#             'biography': 'Directed: Whiplash, La La Land.'
+#             'description': 'Directed: Whiplash, La La Land.'
 #         }
 
-#         self.app.post('/create_director', data=post_data)
-#         # TODO: Verify that the director was updated in the database
-#         create_director = Director.query.filter_by(name='Damien Chazelle').one()
-#         self.assertIsNotNone(create_director)
-#         self.assertEqual(create_director.biography, 'Directed: Whiplash, La La Land, and Babylon.')
+#         self.app.post('/create_list', data=post_data)
+#         # TODO: Verify that the list was updated in the database
+#         create_list = List.query.filter_by(name='Damien Chazelle').one()
+#         self.assertIsNotNone(create_list)
+#         self.assertEqual(create_list.description, 'Directed: Whiplash, La La Land, and Babylon.')
 
 #     def test_create_entry(self):
 #         # TODO: Create a user & login (so that the user can access the route)
 #         create_user()
 #         login(self.app, 'me1', 'password')
-#         # TODO: Make a POST request to the /create_genre route, 
+#         # TODO: Make a POST request to the /create_entry route, 
 #         post_data = {
 #             'name': 'Test Entry',
 #         }
 #         self.app.post('/create_entry', data=post_data)
-#         # TODO: Verify that the genre was updated in the database
+#         # TODO: Verify that the entry was updated in the database
 #         create_entry = Entry.query.filter_by(name='Test Entry').one()
 #         self.assertIsNotNone(create_entry)
 #         self.assertEqual(create_entry.name, 'Test Entry')
@@ -256,7 +256,7 @@
 #     def test_favorite_film(self):
 #         # TODO: Login as the user me1
 #         create_user()
-#         create_films()
+#         create_film()
 #         login(self.app, 'me1', 'password')
 #         # TODO: Make a POST request to the /favorite/1 route
 #         post_data = {
@@ -271,7 +271,7 @@
 
 #     def test_unfavorite_film(self):
 #         # TODO: Login as the user me1, and add film with id 1 to me1's favorites
-#         create_films()
+#         create_film()
 #         create_user()
 #         login(self.app, 'me1', 'password')
 #         # TODO: Make a POST request to the /unfavorite/1 route

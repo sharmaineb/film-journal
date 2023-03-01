@@ -5,7 +5,7 @@
 # from datetime import date
 
 # from film_app.extensions import app, db, bcrypt
-# from film_app.models import Film, Director, User, Genre
+# from film_app.models import Film, List, User, Genre
 
 # """
 # Run these tests with the command:
@@ -17,16 +17,16 @@
 # #################################################
 
 # def create_films():
-#     a1 = Director(name='Greta Gerwig')
+#     a1 = List(name='Greta Gerwig')
 #     b1 = Film(
 #         title='Lady Bird',
 #         watched_date=date(2017, 11, 10),
-#         director=a1
+#         list=a1
 #     )
 #     db.session.add(b1)
 
-#     a2 = Director(name='Tony Scott')
-#     b2 = Film(title='True Romance', director=a2)
+#     a2 = List(name='Tony Scott')
+#     b2 = Film(title='True Romance', list=a2)
 #     db.session.add(b2)
 #     db.session.commit()
 
