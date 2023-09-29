@@ -1,0 +1,18 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: Film
+      POSTGRES_PASSWORD: Journal
+      POSTGRES_DB: filmjournaldb
+
+  film-journal-app:
+    image: sharshar7/film-journal:v1.0
+    ports:
+      - "5000:5000"
+    environment:
+      SECRET_KEY: password
+      DATABASE_URL: postgresql://Film:Journal@postgres:5432/filmjournaldb
+    depends_on:
+      - postgres
