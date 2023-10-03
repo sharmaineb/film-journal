@@ -4,9 +4,7 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/sharshar7/film-journal)
 
-![Docker Build Status](https://img.shields.io/docker/build/sharshar7/film-journal)
-
-![Docker Image Size](https://img.shields.io/docker/image-size/sharshar7/film-journal/latest)
+![Docker Image Size](https://img.shields.io/docker/image-size/sharshar7/film-journal)
 
 ![Docker Automated build](https://img.shields.io/docker/automated/sharshar7/film-journal)
 
