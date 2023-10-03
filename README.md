@@ -1,8 +1,14 @@
 ## Film Journal
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sharmaineb/film-journal)
+
+![Docker Pulls](https://img.shields.io/docker/pulls/sharshar7/film-journal)
+
+
 ![Docker Build Status](https://img.shields.io/docker/build/sharshar7/film-journal)
+
 ![Docker Image Size](https://img.shields.io/docker/image-size/your-username/your-repo/latest)
+
 ![Docker Automated build](https://img.shields.io/docker/automated/your-username/your-repo)
 
 
