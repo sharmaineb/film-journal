@@ -1,8 +1,9 @@
 ## Film Journal
 
-![Code Coverage](https://img.shields.io/codecov/c/gh/sharmaineb/film-journal)
+![GitHub last commit](https://img.shields.io/github/last-commit/sharmaineb/film-journal)
 
-![David-DM](https://img.shields.io/david/sharmaineb/film-journal)
+
+
 
 
 "film-journal" is a web application designed to help movie enthusiasts organize and manage their film-watching experiences. 
