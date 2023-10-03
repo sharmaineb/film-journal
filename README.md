@@ -2,9 +2,11 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sharmaineb/film-journal)
 
+![Docker Build Status](https://img.shields.io/docker/build/sharmaineb/film-journal)
 
+![Docker Image Size](https://img.shields.io/docker/image-size/sharmaineb/film-journal)
 
-
+![Docker Automated build](https://img.shields.io/docker/automated/sharmaineb/film-journal)
 
 "film-journal" is a web application designed to help movie enthusiasts organize and manage their film-watching experiences. 
 
