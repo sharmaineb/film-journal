@@ -1,5 +1,10 @@
 ## Film Journal
 
+![Code Coverage](https://img.shields.io/codecov/c/gh/sharmaineb/film-journal)
+
+![David-DM](https://img.shields.io/david/sharmaineb/film-journal)
+
+
 "film-journal" is a web application designed to help movie enthusiasts organize and manage their film-watching experiences. 
 
 ### Status Page
@@ -38,6 +43,7 @@ python3 app.py
 You can use Docker to run the app. Make sure you have Docker installed and then execute:
 
 ```bash
+docker-compose build
 docker-compose up
 ```
 Happy film journaling! 🎥📝
