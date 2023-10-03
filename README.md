@@ -6,7 +6,7 @@
 [Status Page Link](https://stats.uptimerobot.com/ZxZ8nCPQOR/795385174)
 
 ### Link to Site
-[Link to Site Link](https://film-journal-app.dev.shaaaarmaineb.me/)
+[Link to Site](https://film-journal-app.dev.shaaaarmaineb.me/)
 
 ### Getting Started
 
