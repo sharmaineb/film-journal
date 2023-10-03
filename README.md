@@ -1,8 +1,8 @@
 ## Film Journal
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sharmaineb/film-journal)
-![GitHub Actions Build Status](https://github.com/sharmaineb/film-journal/workflows/your-workflow-name/badge.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/sharmaineb/film-journal)
+![GitHub Actions Build Status](https://github.com/sharshar7/film-journal/workflows/your-workflow-name/badge.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/sharshar7/film-journal)
 
 
 
