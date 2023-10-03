@@ -4,7 +4,12 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/sharshar7/film-journal)
 
-![GitHub Actions Build Status](https://github.com/sharmaineb/film-journal/workflows/your-workflow-name/badge.svg)
+![Docker Build Status](https://img.shields.io/docker/build/sharshar7/film-journal)
+
+![Docker Image Size](https://img.shields.io/docker/image-size/sharshar7/film-journal/latest)
+
+![Docker Automated build](https://img.shields.io/docker/automated/sharshar7/film-journal)
+
 
 "film-journal" is a web application designed to help movie enthusiasts organize and manage their film-watching experiences. 
 
