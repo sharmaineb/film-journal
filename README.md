@@ -11,12 +11,6 @@
 
 "film-journal" is a web application designed to help movie enthusiasts organize and manage their film-watching experiences. 
 
-### Status Page
-[Status Page Link](https://stats.uptimerobot.com/ZxZ8nCPQOR/795385174)
-
-### Link to Site
-[Link to Site](https://film-journal-app.dev.shaaaarmaineb.me/)
-
 ### Getting Started
 
 To run the app locally, follow these simple steps:
